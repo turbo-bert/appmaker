@@ -22,6 +22,27 @@ funky_docker_scripts() {
 
 
 
+if [[ ! -f appmaker.env ]]; then
+    echo "There is no appmaker.env - do you want me to create a template?"
+    echo "  empty = abort"
+    echo "  py    = a typical python cli"
+    read CH
+    if [[ $CH = py ]]; then
+        cat >appmaker.env <<EOF
+DOCKER_ACCOUNT=turbobert
+DOCKER_APP_NAME=test
+DOCKER_APP_TYPE=py
+DOCKER_APT_PKGS="openssl mc emacs-nox less dialog"
+DOCKER_PIP_PKGS="reportlab flask requests"
+EOF
+    echo "I created appmaker.env with following content:"
+    echo "###############################################"
+    cat appmaker.env
+    echo "###############################################"
+    fi
+    exit 0
+fi
+
 
 
 . appmaker.env
