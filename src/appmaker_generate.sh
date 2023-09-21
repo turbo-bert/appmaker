@@ -29,7 +29,7 @@ if [[ ! -f appmaker.env ]]; then
     read CH
     if [[ $CH = py ]]; then
         cat >appmaker.env <<EOF
-DOCKER_ACCOUNT=turbobert
+DOCKER_ACCOUNT=YOUR_DOCKER_ACCOUNT
 DOCKER_APP_NAME=test
 DOCKER_APP_TYPE=py
 DOCKER_APT_PKGS="openssl mc emacs-nox less dialog"
